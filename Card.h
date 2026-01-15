@@ -26,7 +26,8 @@ struct Card {
     }
 
     void saveToTextFile(FILE* fp) {
-        fprintf(fp, "\n%s\n%f %l", name, money, number);
+        //%f = float, %d = int, %lf = double, %ld = long, %ul = unsigned long
+        fprintf(fp, "\n%s\n%f %ld", name, money, number);
         /*
          Tetiana Perederii
          50 12345678
@@ -37,8 +38,8 @@ struct Card {
        // fscanf_s(fp, "\n"); // VS
         fscanf(fp, "\n"); // Online Xcode, Clion
         fgets(name, 100, fp);
-        //fscanf_s(fp, "%f %l", &money, &number); //VS
-        fscanf(fp, "%f %l", &money, &number); // Online Xcode, Clion
+        //fscanf_s(fp, "%f %ld", &money, &number); //VS
+        fscanf(fp, "%f %ld", &money, &number); // Online Xcode, Clion
     }
 
 };
