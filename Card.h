@@ -16,7 +16,6 @@ struct Card {
         money = 50;
         cout << "Opened: " << number << endl;
     }
-
     void showCard() {
         cout << "+++++++++++++++++++++++++++++++++++++\n";
         cout << "| Client: " << name << endl;
@@ -24,7 +23,6 @@ struct Card {
         cout << "| Money:  " << money << "UAH.\n";
         cout << "+++++++++++++++++++++++++++++++++++++\n\n";
     }
-
     void saveToTextFile(FILE* fp) {
         //%f = float, %d = int, %lf = double, %ld = long, %ul = unsigned long
         fprintf(fp, "\n%s\n%f %ld", name, money, number);
@@ -33,7 +31,6 @@ struct Card {
          50 12345678
          */
     }
-
     void loadFromTextFile(FILE* fp) {
        // fscanf_s(fp, "\n"); // VS
         fscanf(fp, "\n"); // Online Xcode, Clion
@@ -42,6 +39,23 @@ struct Card {
         //fscanf_s(fp, "%f %ld", &money, &number); //VS
         fscanf(fp, "%f %ld", &money, &number); // Online Xcode, Clion
     }
-
 };
+
+
+void saveArray(Card* arr, int size) {
+    FILE* fp = nullptr;
+    //fopen_s(&fp, "bank.txt", "w"); // VS
+    fp = fopen( "bank.txt", "w"); // Online, Xcode, Clion
+    if (fp!= nullptr) {
+        //=============================================
+        fprintf(fp, "%d", size); //Зберігаємо розмір масиву
+        for (int i = 0; i < size; i++) {
+            arr[i].saveToTextFile(fp);
+        }
+        //=============================================
+        fclose(fp);
+        //system("start bank.txt"); Windows
+        cout << "Saved!" << endl;
+    }
+}
 
