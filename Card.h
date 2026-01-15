@@ -39,7 +39,7 @@ struct Card {
         //fscanf_s(fp, "%f %ld", &money, &number); //VS
         fscanf(fp, "%f %ld", &money, &number); // Online Xcode, Clion
     }
-};
+};//end Card
 
 
 void saveArray(Card* arr, int size) {
@@ -56,6 +56,25 @@ void saveArray(Card* arr, int size) {
         fclose(fp);
         //system("start bank.txt"); Windows
         cout << "Saved!" << endl;
+    }
+}
+
+void loadArray(Card* &arr, int &size) {
+    FILE* fp = nullptr;
+    //fopen_s(&fp, "bank.txt", "r"); // VS
+    fp = fopen( "bank.txt", "r"); // Online, Xcode, Clion
+    if (fp!= nullptr) {
+        //=============================================
+        //fscanf_s(fp, "%d", &size); // VS = Зчитуємо розмір масиву
+        fscanf(fp, "%d", &size); //Online, Xcode, Clion  = Зчитуємо розмір масиву
+        arr = new Card[size]; //Виділяємо памʼять під масив
+        for (int i = 0; i < size; i++) {
+            arr[i].loadFromTextFile(fp);
+        }
+        //=============================================
+        fclose(fp);
+        //system("start bank.txt"); Windows
+        cout << "Loaded!" << endl;
     }
 }
 
