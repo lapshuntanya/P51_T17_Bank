@@ -25,5 +25,21 @@ struct Card {
         cout << "+++++++++++++++++++++++++++++++++++++\n\n";
     }
 
+    void saveToTextFile(FILE* fp) {
+        fprintf(fp, "\n%s\n%f %l", name, money, number);
+        /*
+         Tetiana Perederii
+         50 12345678
+         */
+    }
+
+    void loadFromTextFile(FILE* fp) {
+       // fscanf_s(fp, "\n"); // VS
+        fscanf(fp, "\n"); // Online Xcode, Clion
+        fgets(name, 100, fp);
+        //fscanf_s(fp, "%f %l", &money, &number); //VS
+        fscanf(fp, "%f %l", &money, &number); // Online Xcode, Clion
+    }
+
 };
 
