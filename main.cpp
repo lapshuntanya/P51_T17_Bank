@@ -51,7 +51,8 @@ int main() {
         cout << "\t 0. Exit and save\n";
         cout << "\t 1. Show list of clients\n";
         cout << "\t 2. Add a new client\n";
-       // cout << "\t 3. Sort by money\n";
+        cout << "\t 3. Sort by money\n";
+        cout << "\t 4. Topup money by number\n";
         cout << "==================================\n";
         cout << "==================================\n";
         cout << ">>>> ";
@@ -73,6 +74,14 @@ int main() {
                 tmp.createCard();
                 addItemBack(arr, NCards, tmp);
             }break;
+            case 3:
+                mySort<Card>(arr, NCards, [](Card a, Card b) {
+                    return a.money < b.money;
+                });
+                for (int i = 0; i < NCards; i++) {
+                    arr[i].showCard();
+                }
+                break;
         }
 
     }
