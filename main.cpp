@@ -51,12 +51,29 @@ int main() {
         cout << "\t 0. Exit and save\n";
         cout << "\t 1. Show list of clients\n";
         cout << "\t 2. Add a new client\n";
-        cout << "\t 3. Sort by money\n";
+       // cout << "\t 3. Sort by money\n";
         cout << "==================================\n";
         cout << "==================================\n";
         cout << ">>>> ";
         cin >> menu;
 
+        switch (menu) {
+            case 0:
+                cout << "Have a nice day!!! =) " << endl;
+                saveArray(arr, NCards);
+                break;
+            case 1:
+                for (int i = 0; i < NCards; i++) {
+                    arr[i].showCard();
+                }
+                break;
+            case 2: {
+                Card tmp;
+                cin.ignore();
+                tmp.createCard();
+                addItemBack(arr, NCards, tmp);
+            }break;
+        }
 
     }
 
