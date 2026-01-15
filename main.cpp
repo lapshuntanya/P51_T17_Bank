@@ -6,5 +6,16 @@ int main() {
 
     Tetiana.showCard();
 
+
+    FILE* fp = nullptr;
+    //fopen_s(&fp, "bank.txt", "w"); // VS
+    fp = fopen( "bank.txt", "w"); // Online, Xcode, Clion
+    if (fp!= nullptr) {
+        Tetiana.saveToTextFile(fp);
+        fclose(fp);
+        //system("start bank.txt"); Windows
+        cout << "Saved!" << endl;
+    }
+
     return 0;
 }
