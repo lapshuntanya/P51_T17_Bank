@@ -36,13 +36,29 @@ int main() {
     int NCards = 0; // розмір масиву = кількість карток в банку
 
     //додаткові змінні
-    int menu = 0;
+    int menu = 1;
     char tmp_name[100] = "";
     int tmp_money = 0;
     long tmp_number = 0;
 
+ // ======   1 Створюємо масив із файлу ===============
+    loadArray(arr, NCards);
 
 
+    while (menu != 0) {
+        cout << "==================================\n";
+        cout << "==================================\n";
+        cout << "\t 0. Exit and save\n";
+        cout << "\t 1. Show list of clients\n";
+        cout << "\t 2. Add a new client\n";
+        cout << "\t 3. Sort by money\n";
+        cout << "==================================\n";
+        cout << "==================================\n";
+        cout << ">>>> ";
+        cin >> menu;
+
+
+    }
 
 
 
