@@ -82,6 +82,23 @@ int main() {
                     arr[i].showCard();
                 }
                 break;
+            case 4: {
+                bool isFind = false;
+                cout << "Input number of card: ";
+                cin >> tmp_number;
+                cout << "Input money: ";
+                cin >> tmp_money;
+                for (int i = 0; i < NCards; i++) {
+                    if (arr[i].number == tmp_number) {
+                        arr[i].money += tmp_money;
+                        isFind = true;
+                        break;
+                    }
+                }
+                if (!isFind) cout << "not found!!!\n";
+            }
+                break;
+
         }
 
     }
