@@ -37,7 +37,8 @@ struct Card {
     void loadFromTextFile(FILE* fp) {
        // fscanf_s(fp, "\n"); // VS
         fscanf(fp, "\n"); // Online Xcode, Clion
-        fgets(name, 100, fp);
+        fgets(name, 100, fp);//Tetiana\n
+        name[strlen(name) - 1] = '\0';//Tetiana\0
         //fscanf_s(fp, "%f %ld", &money, &number); //VS
         fscanf(fp, "%f %ld", &money, &number); // Online Xcode, Clion
     }
